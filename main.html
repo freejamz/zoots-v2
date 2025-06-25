@@ -10,20 +10,64 @@
       background: black;
       height: 100vh;
       margin: 0;
+      font-family: 'NokiaFont', sans-serif;
+      position: relative;
     }
 
+    /* Top-left "Comic" button */
+    #comicButton {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      font-size: 1.2rem;
+      padding: 0.8rem 1.6rem;
+      background: #222;
+      color: #0f0;
+      border: 2px solid #0f0;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.3s ease;
+      z-index: 1000;
+    }
+
+    #comicButton:hover {
+      background: #0f0;
+      color: #000;
+    }
+
+    /* Blek in the center */
+    #blek {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 40vw;
+      height: auto;
+    }
+
+    /* Second image to the right-center */
+    #rightImage {
+      position: absolute;
+      top: 50%;
+      right: 10%;
+      transform: translateY(-50%);
+      max-width: 30vw;
+      height: auto;
+    }
+
+    /* Optional: top-right sound button */
     #playHomeSound {
       position: fixed;
       top: 20px;
       right: 20px;
-      font-family: 'NokiaFont', sans-serif;
-      font-size: 1.5rem;
-      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      padding: 0.8rem 1.6rem;
       background: #222;
       color: #0f0;
       border: 2px solid #0f0;
-      cursor: pointer;
       border-radius: 5px;
+      cursor: pointer;
       transition: background 0.3s ease;
       z-index: 1000;
     }
@@ -35,6 +79,16 @@
   </style>
 </head>
 <body>
+  <!-- Comic button (top-left) -->
+  <a id="comicButton" href="https://www.instagram.com/p/DK3I6QkCwfq/" target="_blank">Comic</a>
+
+  <!-- Blek in center -->
+  <img id="blek" src="assets/blek.png" alt="Blek" />
+
+  <!-- Image to the right-center -->
+  <img id="rightImage" src="assets/side-image.png" alt="Side Drawing" />
+
+  <!-- Audio + top-right sound button -->
   <button id="playHomeSound">Enter Cloud Kingdom</button>
   <audio id="homeSound" src="assets/home-sound.mp3" loop></audio>
 
