@@ -8,9 +8,40 @@
   <style>
     body {
       background: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #playHomeSound {
+      font-family: 'NokiaFont', sans-serif;
+      font-size: 1.5rem;
+      padding: 1rem 2rem;
+      background: #222;
+      color: #0f0;
+      border: 2px solid #0f0;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+
+    #playHomeSound:hover {
+      background: #0f0;
+      color: #000;
     }
   </style>
 </head>
 <body>
+  <button id="playHomeSound">Play Sound</button>
+  <audio id="homeSound" src="assets/home-sound.mp3" loop></audio>
+
+  <script>
+    document.getElementById('playHomeSound').addEventListener('click', () => {
+      const homeSound = document.getElementById('homeSound');
+      homeSound.play();
+    });
+  </script>
 </body>
 </html>
