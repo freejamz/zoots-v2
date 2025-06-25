@@ -8,14 +8,14 @@
   <style>
     body {
       background: black;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       height: 100vh;
       margin: 0;
     }
 
     #playHomeSound {
+      position: fixed;
+      top: 20px;
+      right: 20px;
       font-family: 'NokiaFont', sans-serif;
       font-size: 1.5rem;
       padding: 1rem 2rem;
@@ -25,6 +25,7 @@
       cursor: pointer;
       border-radius: 5px;
       transition: background 0.3s ease;
+      z-index: 1000;
     }
 
     #playHomeSound:hover {
