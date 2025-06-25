@@ -1,27 +1,35 @@
-// Load and play sound on page load
-const audio = new Audio('assets/home-sound.mp3');
-audio.loop = true;
-audio.volume = 1.0;
-audio.play().catch(e => {
-  console.log('Autoplay blocked, waiting for user interaction...');
-});
-
-// Handle splash image click
 document.addEventListener('DOMContentLoaded', () => {
   const splash = document.getElementById('splash');
+  const splashSound = document.getElementById('splashSound');
+  const homeSound = document.getElementById('homeSound');
 
-  if (splash) {
-    splash.addEventListener('click', () => {
-      // Optionally add a fade or scale effect
-      splash.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
-      splash.style.transform = 'scale(1.05)';
-      splash.style.opacity = '0';
+  // Ensure homeSound starts muted
+  homeSound.volume = 0;
+  homeSound.loop = true;
 
-      setTimeout(() => {
-        audio.pause(); // Stop sound
-        window.location.href = 'main.html'; // Transition to main
-      }, 400);
+  // Play splash sound, then fade into home sound
+  splashSound.play().then(() => {
+    splashSound.addEventListener('ended', () => {
+      homeSound.play();
+
+      // Fade in homeSound over 2 seconds
+      let volume = 0;
+      const fadeIn = setInterval(() => {
+        volume += 0.05;
+        homeSound.volume = Math.min(volume, 1);
+        if (volume >= 1) clearInterval(fadeIn);
+      }, 100);
     });
-  }
-});
+  }).catch(() => {
+    // fallback: play homeSound if splashSound is blocked
+    homeSound.volume = 1;
+    homeSound.play();
+  });
 
+  // Click to go to main.html
+  splash.addEventListener('click', () => {
+    splashSound.pause();
+    homeSound.pause();
+    window.location.href = 'main.html';
+  });
+});
