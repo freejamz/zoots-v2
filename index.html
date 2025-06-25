@@ -13,5 +13,12 @@
     <audio id="splashSound" src="assets/splash-sound.mp3"></audio>
     <audio id="homeSound" src="assets/home-sound.mp3" loop></audio>
   </div>
+
+  <script>
+    const splashAudio = document.getElementById('splashSound');
+    if (splashAudio) {
+      splashAudio.volume = 0.5;
+    }
+  </script>
 </body>
 </html>
