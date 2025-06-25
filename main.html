@@ -14,7 +14,7 @@
       position: relative;
     }
 
-    /* Top-left "Comic" button */
+    /* Comic button top-left */
     #comicButton {
       position: fixed;
       top: 20px;
@@ -36,38 +36,33 @@
       color: #000;
     }
 
-    /* Blek in the center */
-    #blek {
+    /* Clickable Blek in center, larger */
+    #blekLink {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      max-width: 40vw;
-      height: auto;
+      max-width: 80vw; /* Increased size (was 40vw) */
+      display: block;
     }
 
-    /* Second image to the right-center */
-    #rightImage {
-      position: absolute;
-      top: 50%;
-      right: 10%;
-      transform: translateY(-50%);
-      max-width: 30vw;
+    #blekLink img {
+      width: 100%;
       height: auto;
+      display: block;
     }
   </style>
 </head>
 <body>
-  <!-- Comic button (top-left) -->
+  <!-- Comic button -->
   <a id="comicButton" href="https://www.instagram.com/p/DK3I6QkCwfq/" target="_blank">Comic</a>
 
-  <!-- Blek in center -->
-  <img id="blek" src="assets/Blek.png" alt="Blek" />
+  <!-- Clickable Blek image -->
+  <a id="blekLink" href="https://www.instagram.com/thehashwiz/" target="_blank">
+    <img src="assets/Blek.png" alt="Blek" />
+  </a>
 
-  <!-- Image to the right-center -->
-  <img id="rightImage" src="assets/side-image.png" alt="Side Drawing" />
-
-  <!-- Background home audio (looping, but no control button) -->
+  <!-- Optional audio preload -->
   <audio id="homeSound" src="assets/home-sound.mp3" loop></audio>
 </body>
 </html>
