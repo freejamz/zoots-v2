@@ -55,48 +55,19 @@
       max-width: 30vw;
       height: auto;
     }
-
-    /* Top-right sound button */
-    #playHomeSound {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      font-size: 1.2rem;
-      padding: 0.8rem 1.6rem;
-      background: #222;
-      color: #0f0;
-      border: 2px solid #0f0;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-      z-index: 1000;
-    }
-
-    #playHomeSound:hover {
-      background: #0f0;
-      color: #000;
-    }
   </style>
 </head>
 <body>
   <!-- Comic button (top-left) -->
   <a id="comicButton" href="https://www.instagram.com/p/DK3I6QkCwfq/" target="_blank">Comic</a>
 
-  <!-- Blek in center (corrected filename case) -->
+  <!-- Blek in center -->
   <img id="blek" src="assets/Blek.png" alt="Blek" />
 
   <!-- Image to the right-center -->
   <img id="rightImage" src="assets/side-image.png" alt="Side Drawing" />
 
-  <!-- Audio + top-right sound button -->
-  <button id="playHomeSound">Enter Cloud Kingdom</button>
+  <!-- Background home audio (looping, but no control button) -->
   <audio id="homeSound" src="assets/home-sound.mp3" loop></audio>
-
-  <script>
-    document.getElementById('playHomeSound').addEventListener('click', () => {
-      const homeSound = document.getElementById('homeSound');
-      homeSound.play();
-    });
-  </script>
 </body>
 </html>
