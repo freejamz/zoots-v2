@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="icon" href="assets/favicon.png" type="image/png" />
+  <link rel="icon" href="assets/favicon.png" type="image/png" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Roll Zoots</title>
@@ -15,35 +15,34 @@
       position: relative;
     }
 
-    /* Comic button top-left */
+    /* Comic image button top-left */
     #comicButton {
       position: fixed;
       top: 20px;
       left: 20px;
-      font-size: 1.2rem;
-      padding: 0.8rem 1.6rem;
-      background: #222;
-      color: #0f0;
-      border: 2px solid #0f0;
-      border-radius: 5px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background 0.3s ease;
       z-index: 1000;
+      display: block;
     }
 
-    #comicButton:hover {
-      background: #0f0;
-      color: #000;
+    #comicButton img {
+      max-width: 120px;
+      height: auto;
+      display: block;
+      transition: filter 0.3s ease;
+      cursor: pointer;
     }
 
-    /* Clickable Blek in center, larger */
+    #comicButton:hover img {
+      filter: brightness(1.4);
+    }
+
+    /* Clickable Blek in center */
     #blekLink {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      max-width: 80vw; /* Increased size (was 40vw) */
+      max-width: 80vw;
       display: block;
     }
 
@@ -55,8 +54,10 @@
   </style>
 </head>
 <body>
-  <!-- Comic button -->
-  <a id="comicButton" href="https://www.instagram.com/p/DK3I6QkCwfq/" target="_blank">Comic</a>
+  <!-- Comic button as image -->
+  <a id="comicButton" href="https://www.instagram.com/p/DK3I6QkCwfq/" target="_blank">
+    <img src="assets/comic website.png" alt="Comic Button" />
+  </a>
 
   <!-- Clickable Blek image -->
   <a id="blekLink" href="https://www.instagram.com/thehashwiz/" target="_blank">
