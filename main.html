@@ -9,13 +9,13 @@
   <style>
     body {
       background: black;
-      height: 100vh;
       margin: 0;
       font-family: 'NokiaFont', sans-serif;
+      height: 100vh;
       position: relative;
+      overflow: hidden;
     }
 
-    /* Comic image button top-left */
     #comicButton {
       position: fixed;
       top: 20px;
@@ -25,7 +25,7 @@
     }
 
     #comicButton img {
-      max-width: 240px; /* doubled from 120px */
+      max-width: 240px;
       height: auto;
       display: block;
       transition: filter 0.3s ease;
@@ -36,7 +36,6 @@
       filter: brightness(1.4);
     }
 
-    /* Clickable Blek in center */
     #blekLink {
       position: absolute;
       top: 50%;
@@ -51,20 +50,57 @@
       height: auto;
       display: block;
     }
+
+    /* Mobile Layout */
+    @media screen and (max-width: 768px) {
+      body {
+        height: auto;
+        overflow-y: auto;
+      }
+
+      #comicButton {
+        position: relative;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 20px;
+        margin-bottom: 40px;
+        z-index: auto;
+      }
+
+      #comicButton img {
+        max-width: 80vw;
+      }
+
+      #blekLink {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+        margin: 0 auto;
+        max-width: 90vw;
+        padding-bottom: 40px;
+        display: block;
+      }
+
+      #blekLink img {
+        width: 100%;
+        height: auto;
+      }
+    }
   </style>
 </head>
 <body>
-  <!-- Comic button as image -->
-  <a id="comicButton" href="https://www.instagram.com/p/DK3I6QkCwfq/" target="_blank">
-    <img src="assets/comic website.png" alt="Comic Button" />
-  </a>
+  <div id="content">
+    <a id="comicButton" href="https://www.instagram.com/p/DK3I6QkCwfq/" target="_blank">
+      <img src="assets/comic website.png" alt="Comic Button" />
+    </a>
 
-  <!-- Clickable Blek image -->
-  <a id="blekLink" href="https://www.instagram.com/thehashwiz/" target="_blank">
-    <img src="assets/Blek.png" alt="Blek" />
-  </a>
+    <a id="blekLink" href="https://www.instagram.com/thehashwiz/" target="_blank">
+      <img src="assets/Blek.png" alt="Blek" />
+    </a>
+  </div>
 
-  <!-- Optional audio preload -->
   <audio id="homeSound" src="assets/home-sound.mp3" loop></audio>
 </body>
 </html>
